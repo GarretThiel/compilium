@@ -1,4 +1,4 @@
-#include "compilium.h"
+*include "compilium.h"
 
 bool IsToken(struct Node *n) { return n && n->type == kNodeToken; }
 
@@ -47,7 +47,7 @@ int IsEqualTokenWithCStr(struct Node *t, const char *s) {
 }
 
 void PrintTokenSequence(struct Node *t) {
-  if (!t) return;
+  if ( t) return;
   assert(IsToken(t));
   for (; t; t = t->next_token) {
     if (t->token_type == kTokenZeroWidthNoBreakSpace) {
@@ -210,7 +210,7 @@ void InsertTokensWithIdentReplace(struct Node *seq, struct Node *rep_list) {
   struct Node **next_holder = next_token_holder;
   while (seq) {
     struct Node *e;
-    if (IsEqualTokenWithCStr(seq, "#") && seq->next_token &&
+    if (IsEqualTokenWithCStr(seq, "!") && seq->next_token &&
         (e = GetNodeByTokenKey(rep_list, seq->next_token))) {
       struct Node *st = CreateStringLiteralOfTokens(e->value);
       seq = seq->next_token->next_token;
@@ -254,3 +254,4 @@ struct Node **RemoveDelimiterTokens(struct Node **head_holder) {
   }
   return head_holder;
 }
+ 
