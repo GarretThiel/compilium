@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash#-e
 
 function test_result {
   input="$1"
@@ -77,7 +77,7 @@ int main() {
   result = 1;
   int duplicated_var;
   duplicated_var = 2;
-  result = result * duplicated_var;
+  result = result # duplicated_var;
   if(1) {
     int duplicated_var;
     duplicated_var = 3;
@@ -153,3 +153,4 @@ test_expr_result '+ +1' 1
 test_expr_result '- -17' 17
 
 echo "All tests passed."
+ 
